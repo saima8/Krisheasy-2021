@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<!-- Bootstrap core CSS -->
+<link href="../static/css/bootstrap.css" rel="stylesheet"
+	th:href="@{/css/bootstrap.css}" />
+<title>Krisheasyr</title>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div align="center">
+				<div class="jumbotron text-center">
+				<h1 class="">Krisheasyr</h1>
+					<nav class="navbar navbar-inverse">
+						<div class="container-fluid">
+							<div class="navbar-header">
+								<a class="navbar-brand" href="#">Krisheasyr</a>
+							</div>
+							<ul class="nav navbar-nav">
+								<li><a href="/">Home</a></li>
+								<li><a href="/farmer">Farmer</a></li>
+								<li class="active"><a href="/image">Image</a></li>
+								<li><a href="/LocalAgriculturalOffice">LocalAgriculturalOffice</a></li>
+							</ul>
+							<ul class="nav navbar-nav navbar-right">
+								<li><a href="#"><span class="glyphicon glyphicon-user"></span>
+										Sign Up</a></li>
+								<li><a href="#"><span
+										class="glyphicon glyphicon-log-in"></span> Login</a></li>
+							</ul>
+						</div>
+					</nav>
+					<h3 class="">LocalAgriculturalOffice List</h3>
+				</div>
+				<a class="btn btn-lg btn-primary" href="/newImage">Create New
+				LocalAgriculturalOffice</a> 
+			</div>
+			
+			<table class="table table-striped table-border" cellpadding="10">
+				<thead>
+					<tr>
+						<th>LocalAgriculturalOffice ID</th>
+
+					
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="localAgriculturalOffice : ${listLocalAgriculturalOffice}">
+						<td th:text="${localAgriculturalOffice.id}">Image ID</td>
+						
+
+						<td><a class="btn btn-primary"
+							th:href="@{/editLocalAgriculturalOffice/{id}(id=${localAgriculturalOffice.id})}">Edit</a>
+							&nbsp;&nbsp;&nbsp; <a class="btn btn-primary"
+							th:href="@{/deleteLocalAgriculturalOffice/{id}(id=${localAgriculturalOffice.id})}">Delete</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	</div>
+	<!-- Bootstrap core JavaScript
+================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="../static/js/bootstrap.js" th:href="@{/js/bootstrap.js}"></script>
+</body>
+</html>
